@@ -1,6 +1,8 @@
 
 import 'package:parse_server_sdk_flutter/parse_server_sdk_flutter.dart';
-import 'package:telecell_price_checker/constants/secrets.dart';
+
+import '../../constants/secrets.dart';
+
 
 // ignore: non_constant_identifier_names
 Future<QueryBuilder<ParseObject>> ApiServices(String database) async {
