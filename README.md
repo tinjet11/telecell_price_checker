@@ -1,4 +1,4 @@
-# Battery Price Checking App
+# Product Price Checking App
 
 ## Introduction
 
