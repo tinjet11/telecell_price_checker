@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:telecell_price_checker/presentation/bloc/cubit/sales_data_cubit.dart';
-import 'package:telecell_price_checker/presentation/bloc/debtor_list/debtor_list_cubit.dart';
-
 import 'package:telecell_price_checker/presentation/screens/home_screen.dart';
+import 'domain/bloc/cubit/sales_data_cubit.dart';
+import 'domain/bloc/debtor_list/debtor_list_cubit.dart';
 
 Future<void> main() async {
-  runApp(MaterialApp(theme: ThemeData(), home: const MainApp()));
+  runApp(MaterialApp(theme: ThemeData(), home: const MainApp(),debugShowCheckedModeBanner: false));
 }
 
 class MainApp extends StatelessWidget {
@@ -31,6 +30,7 @@ class MainApp extends StatelessWidget {
               'Telecell Marketing & Services',
               style: TextStyle(color: Colors.black),
             ),
+            
           ),
           body: BlocBuilder<DebtorListCubit, DebtorListState>(
             builder: (context, state) {

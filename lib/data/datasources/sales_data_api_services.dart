@@ -5,7 +5,7 @@ import '../models/sales_data_model.dart';
 import 'package:intl/intl.dart'; // Import the date formatting library
 
 @override
-Future<List<CombinedDataModel>> getSalesData(String debtor) async {
+Future<List<SalesDataModel>> getSalesData(String debtor) async {
   final List<String> datelist = [];
   final List<String> invoicelist = [];
   final List<String> quantitylist = [];
@@ -30,15 +30,16 @@ Future<List<CombinedDataModel>> getSalesData(String debtor) async {
       stockcodelist.add('${object.get('StockCode')}');
     }
 
-    List<CombinedDataModel> salesDataList = datelist.map((date) {
+    List<SalesDataModel> salesDataList = datelist.map((date) {
       int index = datelist.indexOf(date);
 
-      return CombinedDataModel(
+      return SalesDataModel(
         date: date,
         invoice: invoicelist[index],
         quantity: quantitylist[index],
-        unitPrice: unitpricelist[index],
-        stockCode: stockcodelist[index],
+        unitprice: unitpricelist[index],
+        stockcode: stockcodelist[index],
+        debtor: debtor,
       );
     }).toList();
 

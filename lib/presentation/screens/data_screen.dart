@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../bloc/cubit/sales_data_cubit.dart';
+import '../../domain/bloc/cubit/sales_data_cubit.dart';
 
 class DataScreen extends StatefulWidget {
   const DataScreen({super.key});
@@ -14,6 +14,7 @@ class _DataScreenState extends State<DataScreen> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: BlocBuilder<SalesDataCubit, SalesDataState>(
         builder: (context, state) {
           if (state is SalesDataLoading) {
@@ -29,7 +30,7 @@ class _DataScreenState extends State<DataScreen> {
             );
           } else {
             return Scaffold(
-              appBar: AppBar(  
+              appBar: AppBar(
                 backgroundColor: Colors.lightBlueAccent,
                 title: Text(
                   BlocProvider.of<SalesDataCubit>(context).state.debtor,
@@ -44,9 +45,9 @@ class _DataScreenState extends State<DataScreen> {
                         .state
                         .salesData
                         .isEmpty)
-                      Text(
-                        "No Sales History found",
-                        style: Theme.of(context).textTheme.headlineMedium,
+                      const Padding(
+                        padding: EdgeInsets.all(8.0),
+                        child: Center(child: Text("No data to be displayed")),
                       )
                     else
                       SingleChildScrollView(

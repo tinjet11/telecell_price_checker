@@ -18,23 +18,9 @@ class SalesDataCubit extends Cubit<SalesDataState> {
   }
 
   void onRetriveSalesData(String debtor) async {
-    final List<CombinedDataModel> salesdata = await getSalesData(debtor);
+    final List<SalesDataModel> salesdata = await getSalesData(debtor);
 
-    List<SalesDataModel> data = [];
 
-    for (int i = 0; i < salesdata.length; i++) {
-      final temp = SalesDataModel(
-        date: salesdata.toList().elementAt(i).date,
-        debtor: debtor,
-        invoice: salesdata.toList().elementAt(i).invoice,
-        quantity: salesdata.toList().elementAt(i).quantity,
-        stockcode: salesdata.toList().elementAt(i).stockCode,
-        unitprice: salesdata.toList().elementAt(i).unitPrice,
-      );
-
-      data.add(temp);
-    }
-
-    emit(SalesDataState(salesData: data, debtor: debtor));
+    emit(SalesDataState(salesData: salesdata, debtor: debtor));
   }
 }

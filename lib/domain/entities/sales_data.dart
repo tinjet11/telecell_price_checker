@@ -14,7 +14,4 @@ class SalesDataEntity extends Equatable {
   @override
   List<Object?> get props =>
       [stockcode, unitprice, invoice, date, debtor, quantity];
-
-  
-
 }
