@@ -1,4 +1,4 @@
-# Battery Price Checking App
+# Product Price Checking App
 
 ## Introduction
 
@@ -28,15 +28,6 @@ Seeing my father struggle with price inquiries motivated me to create this app. 
 
 - **Back4App:** For the database, I chose Back4App as it's a reliable platform for storing and retrieving data efficiently.
 
-## How to Use
-
-1. Clone this repository to your local machine.
-2. Run `flutter pub get` to install the required dependencies.
-3. Use `flutter run` to launch the app and start exploring.
-
-## Contribution
-
-I'm totally open to contributions! If you think you can add something valuable or want to make improvements, feel free to submit a pull request.
 
 ## License
 
