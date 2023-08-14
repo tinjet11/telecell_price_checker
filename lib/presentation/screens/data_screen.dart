@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:telecell_price_checker/domain/bloc/debtor_list/debtor_list_cubit.dart';
+import 'package:telecell_price_checker/presentation/screens/home_screen.dart';
 
 import '../../domain/bloc/cubit/sales_data_cubit.dart';
+import '../../main.dart';
 
 class DataScreen extends StatefulWidget {
   const DataScreen({super.key});
@@ -31,6 +34,16 @@ class _DataScreenState extends State<DataScreen> {
           } else {
             return Scaffold(
               appBar: AppBar(
+                leading: IconButton(
+                    icon: const Icon(Icons.arrow_back, color: Colors.black),
+                    onPressed: () => {
+                          Navigator.pop(context),
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const MainApp()),
+                          ),
+                        }),
                 backgroundColor: Colors.lightBlueAccent,
                 title: Text(
                   BlocProvider.of<SalesDataCubit>(context).state.debtor,

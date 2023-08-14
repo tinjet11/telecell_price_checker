@@ -60,9 +60,10 @@ class _HomeScreenState extends State<HomeScreen> {
             MaterialButton(
               onPressed: () {
                 context.read<SalesDataCubit>().onLoadingSalesData(debtor);
-                Navigator.of(context).push(MaterialPageRoute(
-                  builder: (_) => const DataScreen(),
-                ));
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const DataScreen()),
+                );
               },
               color: Colors.lightBlueAccent, // Background color
               padding: const EdgeInsets.symmetric(
