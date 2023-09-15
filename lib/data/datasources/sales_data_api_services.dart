@@ -30,22 +30,24 @@ Future<List<SalesDataModel>> getSalesData(String debtor) async {
       stockcodelist.add('${object.get('StockCode')}');
     }
 
-    List<SalesDataModel> salesDataList = datelist.map((date) {
-      int index = datelist.indexOf(date);
+    List<SalesDataModel> salesDataList = [];
 
-      return SalesDataModel(
-        date: date,
-        invoice: invoicelist[index],
-        quantity: quantitylist[index],
-        unitprice: unitpricelist[index],
-        stockcode: stockcodelist[index],
+    for (int i = 0; i < datelist.length; i++) {
+      SalesDataModel model = SalesDataModel(
+        date: datelist[i],
+        invoice: invoicelist[i],
+        quantity: quantitylist[i],
+        unitprice: unitpricelist[i],
+        stockcode: stockcodelist[i],
         debtor: debtor,
       );
-    }).toList();
+      salesDataList.add(model);
+    }
 
     //sort the data in descending order based on date
-    DateFormat dateFormat = DateFormat('d/M/y'); 
-    salesDataList.sort((a, b) => dateFormat.parse(b.date).compareTo(dateFormat.parse(a.date)));
+    DateFormat dateFormat = DateFormat('d/M/y');
+    salesDataList.sort(
+        (a, b) => dateFormat.parse(b.date).compareTo(dateFormat.parse(a.date)));
 
     return salesDataList;
   } else {
